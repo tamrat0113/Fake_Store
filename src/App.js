@@ -1,24 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
 
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Productdetailspage from './Components/Productdetailspage';
+import ProductsPage from './Components/ProductsPage';
+// import Checkoutpage from './Components/Checkoutpage';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import Payment from '../src/Components/Payment';
+import Cartpage from './Components/Cartpage';
 function App() {
+
+  const promise = loadStripe(
+    'pk_test_51JL6xnAEIvf3Nqjj7uXFtXUuN39k2BN4gzJqJQVCCSLrGinlxr2VV72LOSwFf9vCznoEI8iGAR2QScPTjIPtV4I700oWf3EDsS'
+  );
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch> 
+          <Route path="/cart">
+            <Cartpage  />
+          </Route>
+          <Route path="/checkout "  >
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
+          </Route>
+          <Route path="/products/:id">
+            <Productdetailspage />
+          </Route>
+          <Route  path="/">
+            <ProductsPage   />
+          </Route> 
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
