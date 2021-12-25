@@ -13,19 +13,29 @@
     box-shadow: 0 6px 18px -9px rgba(0, 0, 0, 0.75);
     transition: transform 0.1s ease-in;
   } */
-
+  * {
+    box-sizing: border-box;
+  }
 .ProductPage {
     display: flex;
-    /* box-shadow: 0 6px 18px -9px rgba(0, 0, 0, 0.75) */
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+     box-shadow: 0 6px 18px -9px rgba(0, 0, 0, 0.75) ;
+    /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
     transition: transform 0.2s ease-in;
-    display: flex;
-    flex-direction: row;
+    /* flex-direction: row; */
     background-color: white;
+    float: left;
+    /* width: 33.33%; three boxes (use 25% for four, and 50% for two, etc) */
+    padding: 50px; /* if you want space between the images */
     /* align-items: left; */
     /* align-items: center; */
     /* border-radius: 10px; */
-    /* justify-content: space-between; */
+    justify-content: space-between;
+    border: 1px dotted black;
+  /* overflow: scroll; */
+  width: 300px;
+  height: 300px;
+  border: 1px dotted black;
+  overflow: auto;
   }
   .ProductsPage__info {
     padding-left: 20px;
@@ -56,9 +66,9 @@
   }
   .Cart {
     /* display: flex; */
-    align-items: right;
+    align-items: center;
     color: white;
-    background: black;
+    /* background: black; */
 
   }
   .infoButton  {

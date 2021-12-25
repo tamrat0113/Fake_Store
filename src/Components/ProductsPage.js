@@ -24,20 +24,30 @@ function ProductsPage() {
     },[]);
 
     return (
-    <div>
-        
-        <div   className="Cart">
+    <div >
+        <ul class="nav">
+            <li>Home</li>
+            <li>About Us</li>
+            <li>Our Clients</li>  
+            <li>Contact Us</li>
             <Link to ="/Cart" >
-            <div className="Cart">
+            <li className="shop"><ShoppingCartIcon/>{cart.length}</li>
+            </Link>
+            {/* <li><span className="Product_icone">{cart.length}</span></li> */}
+        </ul>
+
+
+        {/* <div   className="Cart">
+            <Link to ="/Cart" >
+            <div className="shop__Cart">
             <ShoppingCartIcon/>
             </div>
             </Link>
             
-                <span className="Product_icone">
-                {/* {basket?.length} */}
-               {cart.length}
+            <span className="Product_icone">
+            {cart.length}
                 </span>
-        </div>
+        </div> */}
         
         <div className="ProductsPage">
         {/* {products.map((product, index) => (

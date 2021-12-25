@@ -51,7 +51,16 @@
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
   }
-  .payment__address{
+  /* .payment__address{
       display: flex;
       margin-left: 10px;
+  } */
+  input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
   }

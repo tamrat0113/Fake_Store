@@ -11,7 +11,7 @@ function Product({id,image,title,price,rating,category, description}) {
 // const  id  = useParams();
   // const ProductInfo = useContext(ProductContext1)
     const [{ cart }, dispatch] = useStateValue();
-    console.log("this is the basket", cart);
+    console.log("this is the Cart", cart);
     return (
     <div >
      

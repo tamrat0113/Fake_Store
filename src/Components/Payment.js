@@ -90,27 +90,36 @@ function Payment() {
                     </div>
                     <div className="payment__address">
                         <div className="payment__input">
-                            <input 
-                            type="text"
-                            placeholder=" Name"
-                            name="firstName"
-                            value={contact.firstName}
-                            onChange={handleInputChange}
-                            />
-                            <input
-                            type="text"
-                            placeholder="Shiping Address"
-                            name="address"
-                            value={contact.address}
-                            onChange={handleInputChange}
-                            />
-                            <input
-                            type="text"
-                            placeholder="Billing Address"
-                            name="billingAddresss"
-                            value={contact.address}
-                            onChange={handleInputChange}
-                            />
+                            <fieldset>
+                                <legend>Contact Address:</legend>
+                            <label for="fname">First Name</label>
+                                <input 
+                                type="text"
+                                placeholder=" Name"
+                                name="firstName"
+                                value={contact.firstName}
+                                onChange={handleInputChange}
+                                form="form1"
+                                />
+                            <label for="adress">Address</label>
+                                <input
+                                type="text"
+                                placeholder="Shiping Address"
+                                name="address"
+                                value={contact.address}
+                                onChange={handleInputChange}
+                                form="form1"
+                                />
+                            <label for="adress">Address</label>   
+                                <input
+                                type="text"
+                                placeholder="Billing Address"
+                                name="billingAddresss"
+                                value={contact.address}
+                                onChange={handleInputChange}
+                                form="form1"
+                                />
+                                </fieldset>
                         </div>
                     </div>
                 </div>
@@ -136,7 +145,7 @@ function Payment() {
                     </div>
                     
                     <div className="payment__details">
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} id="form1">
                             <CardElement onChange={handleChange} />
                             <div className="payment__priceContainer">
                                 <CurrencyFormat
