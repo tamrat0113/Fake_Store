@@ -1,5 +1,6 @@
 import React, { useState,useEffect,useContext,useReducer } from 'react';
 import "./ProductsPage.css"
+import Header from './Header';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Product from './Product';
 import { Link, useHistory } from 'react-router-dom';
@@ -24,35 +25,11 @@ function ProductsPage() {
     },[]);
 
     return (
-    <div >
+    <div>
         <ul class="nav">
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Our Clients</li>  
-            <li>Contact Us</li>
-            <Link to ="/Cart" >
-            <li className="shop"><ShoppingCartIcon/>{cart.length}</li>
-            </Link>
-            {/* <li><span className="Product_icone">{cart.length}</span></li> */}
+        <Header/>
         </ul>
-
-
-        {/* <div   className="Cart">
-            <Link to ="/Cart" >
-            <div className="shop__Cart">
-            <ShoppingCartIcon/>
-            </div>
-            </Link>
-            
-            <span className="Product_icone">
-            {cart.length}
-                </span>
-        </div> */}
-        
-        <div className="ProductsPage">
-        {/* {products.map((product, index) => (
-        <Item key={index} product={product} />
-            ))} */}
+       <div className="ProductsPage">
         {products.map((product) => (
         <Product 
             id={product.id}
@@ -60,8 +37,7 @@ function ProductsPage() {
             title={product.title}
             price={product.price} />
         ))}
-      
-        </div>
+       </div>
     </div>
     )
 }
@@ -80,3 +56,26 @@ export default ProductsPage;
         ))}
             
         </div> */}
+        {/* <Link to ="/Cart" >
+            <li className="shop"><ShoppingCartIcon/><span>{cart.length}</span></li>
+            </Link> */}
+            {/* <li><span className="Product_icone">{cart.length}</span></li> */}
+             {/* <li class="active" href="#home">Home</li>
+            <li>About Us</li>
+            <li>Our Clients</li>  
+            <li>Contact Us</li> */}
+ {/* <div   className="Cart">
+            <Link to ="/Cart" >
+            <div className="shop__Cart">
+            <ShoppingCartIcon/>
+            </div>
+            </Link>
+            
+            <span className="Product_icone">
+            {cart.length}
+                </span>
+        </div> */}
+
+         {/* {products.map((product, index) => (
+        <Item key={index} product={product} />
+            ))} */}

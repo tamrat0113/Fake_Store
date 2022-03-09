@@ -2,14 +2,15 @@ import { Link, useHistory } from 'react-router-dom';
 import React, { useState,useEffect } from 'react';
 import './Payment.css';
 import CheckoutProducts from './CheckoutProducts';
-import { useStateValue } from '../../src/StateProvider';
+import { useStateValue } from '../StateProvider';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import axios from '../axios';
+import { db } from './Firebase';
 // import { db } from './firebase';
 
 function Payment() {
-    const [{ cart }, dispatch] = useStateValue();
+    const [{ cart, user }, dispatch] = useStateValue();
     const history = useHistory();
 
     const stripe = useStripe();
@@ -60,14 +61,21 @@ function Payment() {
         card: elements.getElement(CardElement)
         },
     }).then(({ paymentIntent }) => {
-    // / paymentIntent = payment confirmation
-            setSucceeded(true);
-            setError(null);
-            setProcessing(false);
-            history.replace('/ProductsPage');
-        dispatch({ 
-                type: 'EMPTY_CART',
-                });
+        console.log(paymentIntent)
+        // / paymentIntent = payment confirmation
+        db.collection('users').doc(user?.uid).collection('orders').doc(paymentIntent.id)
+        .set({
+            cart: cart,
+          amount: paymentIntent.amount,
+          created: paymentIntent.created,
+        });
+        setSucceeded(true);
+        setError(null);
+        setProcessing(false);
+        dispatch({
+            type: 'EMPTY_CART',
+          });
+          history.replace('/orders');
     })
         
 }
@@ -100,7 +108,10 @@ function Payment() {
                                 value={contact.firstName}
                                 onChange={handleInputChange}
                                 form="form1"
-                                />
+                                /><br>
+                                </br>
+                                <br>
+                                </br>
                             <label for="adress">Address</label>
                                 <input
                                 type="text"
@@ -109,7 +120,10 @@ function Payment() {
                                 value={contact.address}
                                 onChange={handleInputChange}
                                 form="form1"
-                                />
+                                /><br>
+                                </br>
+                                <br>
+                                </br>
                             <label for="adress">Address</label>   
                                 <input
                                 type="text"
@@ -170,3 +184,14 @@ function Payment() {
 }
 
 export default Payment;
+
+// {
+//     // / paymentIntent = payment confirmation
+//             setSucceeded(true);
+//             setError(null);
+//             setProcessing(false);
+//             history.replace('/ProductsPage');
+//         dispatch({ 
+//                 type: 'EMPTY_CART',
+//                 });
+//     })

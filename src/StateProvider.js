@@ -10,7 +10,7 @@ export const StateProvider = ({ reducer, initialState, children }) => (
   </StateContext.Provider>
 );
 
-// Pulland push information from the data layer
+// Pull and push information from the data layer
 export const useStateValue = () => useContext(StateContext);
 
 

@@ -9,7 +9,7 @@ import "./Productdetailspage.css";
 const Productdetailspage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
-  const [count, setCount] = useState(1);
+  // const [count, setCount] = useState(1);
 //   const { cart, setCart } = useContext(ProductContext1);
   const history = useHistory();
    const [{ cart }, dispatch] = useStateValue();
@@ -58,24 +58,12 @@ const addToCart = () => {
                         <strong>{product.price}</strong>
                         </p>
                     </div>
-                        <div><p className="ProductsPage__title">Category : {product.category}</p></div>
+                    <div><p className="ProductsPage__title">Category : {product.category}</p>
+                    </div>
             </div>
 
         <div className="addContainer">
-            <div>
-                <button className="cntBtn" onClick={() => setCount(count - 1)}>
-                -
-                </button>
-                {count}{" "}
-                <button
-                className="cntBtn"
-                onClick={() => {
-                    setCount(count + 1);
-                }}
-                >
-                +
-                </button>
-            </div>
+            
             <button className="cntBtn"
                 onClick={addToCart}>
                 Add To Cart
@@ -93,6 +81,16 @@ export default Productdetailspage;
             // setCart([...cart, { ...product, count }]);
             //   history.push("/");
             // }}
+
+            // <div>
+            //     <button className="cntBtn" onClick={() => setCount(count - 1)}>
+            //     -
+            //     </button>
+            //     {count}{" "}
+            //     <button className="cntBtn" onClick={() => {setCount(count + 1); }}>
+            //     +
+            //     </button>
+            // </div>
 
 
 

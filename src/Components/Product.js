@@ -6,7 +6,7 @@ import { StateProvider, useStateValue } from '../../src/StateProvider';
 import { useHistory, useParams } from "react-router";
 // import ProductContext from "./cartContext"
 // import ProductContext1 from '../ProductContext1';
-function Product({id,image,title,price,rating,category, description}) {
+function Product({id,image,title,price, description}) {
   const history = useHistory();
 // const  id  = useParams();
   // const ProductInfo = useContext(ProductContext1)

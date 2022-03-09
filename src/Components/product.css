@@ -1,20 +1,7 @@
-/* .ProductsPage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    margin: 10px;
-    padding: 20px;
+
+  body .ProductPage{
     width: 100%;
-    max-height: 400px;
-    min-width: 100px;
-    background-color: white;
-    z-index: 1;
-    box-shadow: 0 6px 18px -9px rgba(0, 0, 0, 0.75);
-    transition: transform 0.1s ease-in;
-  } */
-  * {
-    box-sizing: border-box;
+    background: linear-gradient(90deg, #3e3e60, lightblue);
   }
 .ProductPage {
     display: flex;
@@ -22,43 +9,30 @@
     /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
     transition: transform 0.2s ease-in;
     /* flex-direction: row; */
-    background-color: white;
+    /* background-color: white; */
     float: left;
-    /* width: 33.33%; three boxes (use 25% for four, and 50% for two, etc) */
     padding: 50px; /* if you want space between the images */
-    /* align-items: left; */
-    /* align-items: center; */
-    /* border-radius: 10px; */
+    transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
     justify-content: space-between;
     border: 1px dotted black;
-  /* overflow: scroll; */
+  overflow: scroll;
   width: 300px;
   height: 300px;
   border: 1px dotted black;
-  overflow: auto;
+  /* overflow: auto; */
   }
   .ProductsPage__info {
     padding-left: 20px;
     padding-right: 30px;
     margin-right: 30px;
   }
-  .ProductsPage__info > button {
-    background: #f0c14b;
-    border: 1px solid;
-    margin-top: 10px;
-    border-color: #a88734 #9c7e31 #846a29;
-    color: #111;
-  }
   .ProductsPage__image {
     object-fit: contain;
     width: 150px;
     height: 180px;
   }
-  .ProductsPage__rating {
-    display: flex;
-  }
   .ProductsPage__title {
-    font-size: 17px;
+    font-size: 13px;
     font-weight: 800;
   }
   .ProductsPage__price {
@@ -71,16 +45,5 @@
     /* background: black; */
 
   }
-  .infoButton  {
-    background-color: #2195f3;
-    margin-top: 10px;
-    /* color: white; */
-    padding: 10px;
-    /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
-    /* backdrop-filter: blur(4px); */
-    /* -webkit-backdrop-filter: blur(4px); */
-    /* border-radius: 10px; */
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    cursor: pointer;
-  }
+  
   
