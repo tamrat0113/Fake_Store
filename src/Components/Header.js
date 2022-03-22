@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./header.css"
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom'
 import { useStateValue } from '../StateProvider';
 import { auth } from './Firebase';
 
-function Header() {
-    const [{ cart, user }, dispatch] = useStateValue();
+function Header({ search}) {
+  const [{ cart, user }, dispatch] = useStateValue();
     const handleAuthenticaton = () => {
         if ( user) {
           auth.signOut();
@@ -26,8 +26,9 @@ function Header() {
                 />
              </Link>
         <div className="header__search">
-        <input className="header__searchInput" type="text" />
-        <SearchIcon className="header__searchIcon" />
+            {/* <Search1  search ={ onChangeHandler}/> */}
+        <input   onChange ={search}  className="header__searchInput"  type='search'  placeholder='search'/>
+        {/* <SearchIcon className="header__searchIcon"  /> */}
         </div>
         <div className="header__nav">
             <Link to={!user && "/Login"} className="header__clearlink">

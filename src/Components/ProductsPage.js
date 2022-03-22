@@ -8,36 +8,29 @@ import { Link, useHistory } from 'react-router-dom';
 // import {ProductContext} from '../ProductContext1';
 import { useStateValue } from '../../src/StateProvider';
 import Item from './Items';
-function ProductsPage() {
-    const [{ cart }, dispatch] = useStateValue();
-    // const [{cart}, dispatch] = useReducer(myReducer, { cart:[] });
-    const  [products, setproducts] = useState([]);
-    // const {ProductInfo} = useContext(ProductContext)
-    useEffect(() => {
-        fetch('https://fakestoreapi.com/products?limit=5')
-        .then(res=>res.json())
-        .then(json =>{
-        const data = json
-            setproducts(data) 
-        })
-        console.log(products)
-       
-    },[]);
-
-    return (
-    <div>
+import Search1 from './Search1';
+function ProductsPage({prdt,  onChangeHandler}) {
+    // const [{ cart }, dispatch] = useStateValue();
+ return (
+    <div className='prdt'>
+        {/* <div><Search1 search={onChangeHandler}/></div> */}
         <ul class="nav">
-        <Header/>
+        {/* <Search1 search={onChangeHandler}/> */}
+        <div>
+        <Header search={onChangeHandler}/>
+        </div>
         </ul>
        <div className="ProductsPage">
-        {products.map((product) => (
-        <Product 
+
+       {prdt.map((product) => (
+        <Product key={product.id}
             id={product.id}
             image={product.image}
             title={product.title}
-            price={product.price} />
+            price={product.price}
+            catagory={product.category} />
         ))}
-       </div>
+        </div>
     </div>
     )
 }
@@ -79,3 +72,10 @@ export default ProductsPage;
          {/* {products.map((product, index) => (
         <Item key={index} product={product} />
             ))} */}
+             {/* {products.map((product) => (
+        <Product key={product.id}
+            id={product.id}
+            image={product.image}
+            title={product.title}
+            price={product.price} />
+        ))} */}

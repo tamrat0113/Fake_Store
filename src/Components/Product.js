@@ -6,7 +6,7 @@ import { StateProvider, useStateValue } from '../../src/StateProvider';
 import { useHistory, useParams } from "react-router";
 // import ProductContext from "./cartContext"
 // import ProductContext1 from '../ProductContext1';
-function Product({id,image,title,price, description}) {
+function Product({id,image,title,price, description, category}) {
   const history = useHistory();
 // const  id  = useParams();
   // const ProductInfo = useContext(ProductContext1)
@@ -21,8 +21,9 @@ function Product({id,image,title,price, description}) {
                 <p className="ProductsPage__title">{title}</p>
                 <p >
                 <small>$</small>
-                <strong>{price}</strong>
+                <strong>{price} </strong>
                 </p>
+                <p> </p>
                 {/* <button onClick={addToCart}>Add to Cart</button> */}
                 <div>
                 <button

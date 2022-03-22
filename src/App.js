@@ -14,7 +14,34 @@ import Login from './Components/Login';
 import { useStateValue } from './StateProvider';
 import { auth } from './Components/Firebase';
 import Orders from './Components/Orders';
+import Search1 from './Components/Search1';
 function App() {
+  const  [products, setproducts] = useState([]);
+  const  [searchField, setSearchField] = useState('');
+  const  [filteredMonsters, setfilteredMonsters] = useState(products);
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products?limit=8')
+    .then(res=>res.json())
+    .then(json =>{
+    const data = json
+        setproducts(data) 
+    })
+    console.log(products)
+   
+},[]);
+
+ const handleChange=(event)=>{
+    const searchString = event.target.value.toLowerCase();
+    setSearchField(searchString);
+  console.log(searchField); //we capture the the type value in the state that is in the searchield 
+    }
+
+    useEffect(()=>{ 
+      const newfilteredCards = products.filter((product)=>{
+        return product.category.toLowerCase().includes(searchField);//this means if the name include the search string(true) it filter the name, that  keep it
+      });
+      setfilteredMonsters(newfilteredCards);
+    },[products, searchField])
 
   const [{}, dispatch] = useStateValue();
   useEffect(() => {
@@ -48,7 +75,7 @@ function App() {
           <Login/>
           </Route>
           <Route path="/orders">
-            <Header/>
+            <Header  onChangeHandler={handleChange} />
             <Orders/>
           </Route>
           <Route path="/cart">
@@ -63,7 +90,7 @@ function App() {
             <Productdetailspage />
           </Route>
           <Route  path="/">
-            <ProductsPage   />
+           <ProductsPage  prdt={filteredMonsters}  onChangeHandler={handleChange}/>
           </Route> 
         </Switch>
       </div>
@@ -72,3 +99,6 @@ function App() {
 }
 
 export default App;
+
+ {/* <Search1 /> */}
+            {/* <ProductsPage  prdt={filteredMonsters}  /> */}

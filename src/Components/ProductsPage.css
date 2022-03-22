@@ -1,8 +1,21 @@
-.ProductsPage {
+/* .ProductsPage {
     display: flex;
     margin-top: 20px;
     margin-bottom: 20px;
-    
+  } */
+  /* .prdt{
+  padding: 20px;
+
+  } */
+  .ProductsPage {
+     /* background: linear-gradient(90deg, #3e3e60, lightblue); */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+     /* background: linear-gradient(90deg, #3e3e60, lightblue); */
+    column-gap: 10px;
+    row-gap: 50px;
+    padding: 30px 20px;
+    /* width: 100px; */
   }
   .ProductsPage__info {
     padding-left: 20px;

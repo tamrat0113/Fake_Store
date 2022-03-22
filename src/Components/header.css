@@ -32,7 +32,7 @@
     height: 11px;
     padding: 10px;
     border: none;
-    width: 100%;
+    width: 180px;
   }
   .header__option {
     display: flex;
@@ -71,6 +71,4 @@
   .Product_icone{
       color: black;
   }
-  .header__clearlink {
-    text-decoration: none;
-  }
+ 
